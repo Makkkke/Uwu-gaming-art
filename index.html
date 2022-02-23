@@ -12,11 +12,14 @@
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     
 </head>
 
 <body>
+    
     <header>
         <!-- Header Start -->
         <div class="header-area">
@@ -168,7 +171,13 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-10">
                         <div class="section-tittle mb-70 text-center">
-                            <h2>Popular Items</h2>
+                            <h2 class="mouseover" onmouseover="mouseover()">Popular Items</h2>
+                            <script>
+                            function mouseover(){
+const textElement = document.querySelector('.mouseover');
+const textElementContent = textElement.innerHTML;
+textElement.innerHTML = 'We promise that this headphones are popular';}
+                            </script>
                             <p>The best headphones for the price and quality.</p>
                         </div>
                     </div>
@@ -180,18 +189,131 @@
                             <p>
 The Each G2000 is an affordable LED backlit gaming headset with 50mm drivers, volume and mic controls, braided cable and soft padded leather ear pieces for comfort.</p>
                             <a href="shop.html" class="btn">$ 29.99</a>
+                            <br><br>
+                            
+<button class="btn" id="show" style="margin-right: 16px; font-size: 12px; width: 15%; padding: 15px 5px 10px 5px; text-align: center">Show</button>
+                            <button class="btn" id="hide" style="margin-right: 16px; font-size: 12px; width: 15%; padding: 15px 5px 10px 5px; text-align: center">Hide</button>
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("table").hide();
+  });
+  $("#show").click(function(){
+    $("table").show();
+  });
+});
+</script>
                         </div>
+                         <table style="display: none">
+  <tr>
+    <th style="width:40%">Features</th>
+    <th style="text-align: center">Basic</th>
+    <th style="text-align: center">Extended information </th>
+  </tr>
+  <tr>
+    <td>Rating</td>
+    <td><i class="fa fa-check"></i></td>
+      
+    <td><p class="rating" ><span id="rating" class="fa fa-star checked"></span>
+<span id="rating" class="fa fa-star checked"></span>
+<span id="rating" class="fa fa-star checked"></span>
+<span id="rating" class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span></p></td>
+  </tr>
+  <tr>
+    <td>Sound quality</td>
+    <td><i class="fa fa-check"></i></td>
+      
+    <td><p onclick="soundQ()" class="soundQ" >
+        <span id="soundQ" class="fa fa-star checked"></span>
+<span id="soundQ" class="fa fa-star checked"></span>
+<span id="soundQ" class="fa fa-star checked"></span>
+<span id="soundQ" class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span></p></td>
+  </tr>
+  <tr>
+    <td>Affordability</td>
+    <td><i class="fa fa-check"></i></td>
+    <td><p class="afford"><span id="afford" class="fa fa-star checked"></span>
+<span id="afford" class="fa fa-star checked"></span>
+<span id="afford" class="fa fa-star checked"></span>
+<span id="afford" class="fa fa-star checked"></span>
+        <span id="afford" class="fa fa-star"></span></p></td>
+  </tr>
+  <tr>
+    <td>Wireless headphone</td>
+    <td><i class="fa fa-remove"></i></td>
+    <td><p onclick="Wireless()" class="Wireless"><span id="Wireless" class="fa fa-star "></span>
+<span id="Wireless" class="fa fa-star "></span>
+<span id="Wireless" class="fa fa-star "></span>
+<span id="Wireless" class="fa fa-star "></span>
+        <span id="Wireless" class="fa fa-star"></span></p></td>
+  </tr>
+</table>
+                        
+        <script>
+document.getElementById("rating").onmouseover = function() {mouseOver()};
+
+
+function mouseOver() {
+  const myobj = document.getElementById("rating");
+  myobj.remove();
+    
+const textElement = document.querySelector('.rating');
+const textElementContent = textElement.innerHTML;
+textElement.innerHTML = '4.1 out of 5 ';}
+    
+    function soundQ() {
+        const myobj1 = document.getElementById("soundQ");
+  myobj1.remove();
+  document.querySelector('.soundQ').innerHTML = "Has good sound quality with great frequence response";
+}
+            
+document.getElementById("afford").onmouseover = function() {mouseOverme()};
+
+
+function mouseOverme() {
+  const myobject = document.getElementById("afford");
+  myobject.remove();
+    
+const textElement = document.querySelector('.afford');
+const textElementContent = textElement.innerHTML;
+textElement.innerHTML = 'Price of Kotion Each G2000 is $32.29';}
+
+         function Wireless() {
+        const myobj1 = document.getElementById("Wireless");
+  myobj1.remove();
+  document.querySelector('.Wireless').innerHTML = "Wired headset";
+}   
+            
+
+//soundQ
+            
+            
+
+</script>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-10" >
                         <div class="choice-watch-img mb-40" data-animation="bounceIn" data-delay=".4s">
-                            <img src="assets/img/gallery/kotion.png" alt="" class=" heartbeat">
+                            <img src="assets/img/gallery/kotion.png" alt="" class=" heartbeat" width="110%" >
+                            <audio id="audio"></audio>
+                            <script >
+                            
+                                $('.heartbeat').on('click', function () { 
+    var obj = document.getElementById('audio');
+    obj.src = 'saxguy.mp3'; 
+    obj.play(); 
+    obj.clone(false);
+});
+                                
+                            </script>
                         </div>
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-10">
                         <div class="choice-watch-img mb-40" data-animation="bounceIn" data-delay=".4s">
-                            <img src="assets/img/gallery/astro.png" alt="" class=" heartbeat">
+                            <img src="assets/img/gallery/astro.png" alt="" class=" heartbeat" width="130%">
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6">
@@ -273,9 +395,7 @@ The Each G2000 is an affordable LED backlit gaming headset with 50mm drivers, vo
                     <div class="footer_color">
                     <div class="col-xl-12 col-lg-12 col-md-12">
                         <div class="footer-copy-right">
-                            <p>
-  Copyright &copy; All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by CSS &amp; Bootstrap &amp; HTML
- </p>                  
+                            
                         </div>
                     </div>
                     
